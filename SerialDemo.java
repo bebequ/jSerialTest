@@ -23,8 +23,8 @@ public class SerialDemo
 			System.out.println(com.getDescriptivePortName() + " : " + com.getSystemPortName());
 		}
 		//SerialPort comPort = SerialPort.getCommPort("bserial-FTCXK07X");	
-		SerialPort comPort = SerialPort.getCommPorts()[0];
-		/*
+		//SerialPort comPort = SerialPort.getCommPorts()[0];
+		
 		System.out.println("Enter SerialPort index : ");
 		Scanner s= new Scanner(System.in);
 		int portnumber = s.nextInt();
@@ -35,7 +35,7 @@ public class SerialDemo
 			return;
 		}
 		final SerialPort comPort = comPorts[portnumber];
-		*/
+		//
 		comPort.setComPortParameters(9600, 7, 1, 2);
 		comPort.setFlowControl(0);
 		//comPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 100, 100);
@@ -98,12 +98,12 @@ public class SerialDemo
 				Thread.sleep(500);
 				
 				Scanner sc = new Scanner(System.in);
-				while(true)
+				//while(true)
 				{
 					System.out.println("Enter if you want to measure light");
-					String msg = sc.nextLine();
-					if(msg.equals("quit"))
-						break;
+					//String msg = sc.nextLine();
+					//if(msg.equals("quit"))
+					//	break;
 					buff = new byte[] {0x02,0x30,0x30,0x31,0x30,0x30,0x32,0x30,0x30,0x03,0x30,0x30,0x0d,0x0a};
 					out.write(buff);
 					Thread.sleep(3000);
